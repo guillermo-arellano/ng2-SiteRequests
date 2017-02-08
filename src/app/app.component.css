@@ -1,0 +1,32 @@
+/* This adds spacing between the material design buttons */
+button {
+    margin: 5px;
+}
+
+/* Pros/Cons styles inside card content */
+.md-card-content-prosconsSection h3 {
+    margin: 0px 0px 12px 0px;
+    font-weight: 100;
+}
+
+.md-card-content-prosconsSection:first-child {
+    margin-right: 30px;
+}
+
+.md-card-content-prosconsSection ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.md-card-content-prosconsSection h3::after {
+    background-color: #a4cf0c;
+    border-radius: 3px;
+    content: '';
+    display: block;
+    height: 8px;
+}
+
+.md-card-content-prosconsSection--cons h3::after {
+    background-color: #e74856;
+}
