@@ -1,4 +1,4 @@
-<div class="md-app-background">
+<div>
   <md-toolbar color="primary">
     <span>{{title}}</span>
   </md-toolbar>
@@ -9,7 +9,7 @@
             [active]="true" 
             [disabled]="false">
       <p>Does your site need to be opened to all of Visa?</p>
-      <md-checkbox>
+      <md-checkbox [(ngModel)]="checked">
         Yes, open to all of Visa Inc
       </md-checkbox>
       <template td-step-actions>
@@ -20,231 +20,244 @@
     <td-step #step2 label="Select Site Type" 
             [state]="none" 
             [disabled]="disabled">
-      <div id="openAllNo" layout="row">
-        <!-- O365 Group Site Card -->
-        <md-card>
-          <md-card-title>O365 Group Site</md-card-title>
-          <md-card-subtitle>A security/distribution group that can be used to manage access to sites and services across Office 365 and the Visa network.</md-card-subtitle>
-          <md-divider></md-divider>
-          <md-card-content>
-            <div layout="row">
-              <div class="md-card-content-prosconsSection">
-                <h3>Pros</h3>
-                <ul>
-                  <li>Simple document library (SP)</li>
-                  <li>Mobile Access</li>
-                  <li>Shared Mailbox (Exchange)</li>
-                  <li>Shared Calendar (Exchange)</li>
-                  <li>Distribution List (Exchange)</li>
-                  <li>Task Board (Planner)</li>
-                </ul>
+      <div *ngIf="!checked" id="openAllNo" layout="row">
+        <div flex>
+          <!-- O365 Group Site Card -->
+          <md-card>
+            <md-card-title>O365 Group Site</md-card-title>
+            <md-card-subtitle>A security/distribution group that can be used to manage access to sites and services across Office 365 and the Visa network.</md-card-subtitle>
+            <md-divider></md-divider>
+            <md-card-content>
+              <div layout="row">
+                <div class="md-card-content-prosconsSection">
+                  <h3>Pros</h3>
+                  <ul>
+                    <li>Simple document library (SP)</li>
+                    <li>Mobile Access</li>
+                    <li>Shared Mailbox (Exchange)</li>
+                    <li>Shared Calendar (Exchange)</li>
+                    <li>Distribution List (Exchange)</li>
+                    <li>Task Board (Planner)</li>
+                  </ul>
+                </div>
+                <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
+                  <h3>Cons</h3>
+                  <ul>
+                    <li>No lists</li>
+                    <li>No forms</li>
+                    <li>No pages</li>
+                    <li>Basic UI</li>
+                    <li>No customization</li>
+                    <li>No apps</li>
+                    <li>Small audiences</li>
+                  </ul>
+                </div>
               </div>
-              <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
-                <h3>Cons</h3>
-                <ul>
-                  <li>No lists</li>
-                  <li>No forms</li>
-                  <li>No pages</li>
-                  <li>Basic UI</li>
-                  <li>No customization</li>
-                  <li>No apps</li>
-                  <li>Small audiences</li>
-                </ul>
-              </div>
-            </div>
-          </md-card-content>
-          <md-divider></md-divider>
-          <md-card-actions>
-            <button md-mini-fab color="accent">
-              <md-icon>check circle</md-icon>
-            </button>
-          </md-card-actions>
-        </md-card>
+            </md-card-content>
+            <md-divider></md-divider>
+            <md-card-actions>
+              <button md-mini-fab color="accent" [disabled]="checkCircleDisabled" (click)="toggleDisable()">
+                <md-icon>check circle</md-icon>
+              </button>
+              <div>{{checkCircleDisabled}}</div>
+            </md-card-actions>
+          </md-card>
+        </div>
         <!-- SP Online Site Card -->
-        <md-card>
-          <md-card-title>SP Online Site</md-card-title>
-          <md-card-subtitle>A cloud version of the SharePoint team sites you've used previously on the Visa network.</md-card-subtitle>
-          <md-divider></md-divider>
-          <md-card-content>
-            <div layout="row">
-              <div class="md-card-content-prosconsSection">
-                <h3>Pros</h3>
-                <ul>
-                  <li>Core SharePoint feature set</li>
-                  <li>Full O365 services</li>
-                  <li>Mobile Access</li>
-                  <li>Some customizations possible</li>
-                  <li>Pages</li>
-                  <li>Lists</li>
-                  <li>Forms</li>
-                  <li>Apps</li>
-                </ul>
+        <div flex>
+          <md-card>
+            <md-card-title>SP Online Site</md-card-title>
+            <md-card-subtitle>A cloud version of the SharePoint team sites you've used previously on the Visa network.</md-card-subtitle>
+            <md-divider></md-divider>
+            <md-card-content>
+              <div layout="row">
+                <div class="md-card-content-prosconsSection">
+                  <h3>Pros</h3>
+                  <ul>
+                    <li>Core SharePoint feature set</li>
+                    <li>Full O365 services</li>
+                    <li>Mobile Access</li>
+                    <li>Some customizations possible</li>
+                    <li>Pages</li>
+                    <li>Lists</li>
+                    <li>Forms</li>
+                    <li>Apps</li>
+                  </ul>
+                </div>
+                <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
+                  <h3>Cons</h3>
+                  <ul>
+                    <li>More complex and advanced</li>
+                    <li>No integration with resources on the Visa network</li>
+                    <li>No Nintex</li>
+                    <li>No InfoPath</li>
+                  </ul>
+                </div>
               </div>
-              <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
-                <h3>Cons</h3>
-                <ul>
-                  <li>More complex and advanced</li>
-                  <li>No integration with resources on the Visa network</li>
-                  <li>No Nintex</li>
-                  <li>No InfoPath</li>
-                </ul>
-              </div>
-            </div>
-          </md-card-content>
-          <md-divider></md-divider>
-          <md-card-actions>
-            <button md-mini-fab color="accent">
-              <md-icon>check circle</md-icon>
-            </button>
-          </md-card-actions>
-        </md-card>
+            </md-card-content>
+            <md-divider></md-divider>
+            <md-card-actions>
+              <button md-mini-fab color="accent" disabled>
+                <md-icon>check circle</md-icon>
+              </button>
+            </md-card-actions>
+          </md-card>
+        </div>
         <!-- SP On-Prem Site Card -->
-        <md-card>
-          <md-card-title>SP On-Premises Site</md-card-title>
-          <md-card-subtitle>SP Publishing site hosted on our internal shared server farm to allow for more advanced customizations.</md-card-subtitle>
-          <md-divider></md-divider>
-          <md-card-content>
-            <div layout="row">
-              <div class="md-card-content-prosconsSection">
-                <h3>Pros</h3>
-                <ul>
-                  <li>Full SharePoint feature set</li>
-                  <li>Included in Insite Search</li>
-                  <li>Tighter network security</li>
-                  <li>Pages</li>
-                  <li>Lists</li>
-                  <li>Forms</li>
-                  <li>Apps</li>
-                  <li>Nintex</li>
-                  <li>InfoPath</li>
-                </ul>
+        <div flex>
+          <md-card>
+            <md-card-title>SP On-Premises Site</md-card-title>
+            <md-card-subtitle>SP Publishing site hosted on our internal shared server farm to allow for more advanced customizations.</md-card-subtitle>
+            <md-divider></md-divider>
+            <md-card-content>
+              <div layout="row">
+                <div class="md-card-content-prosconsSection">
+                  <h3>Pros</h3>
+                  <ul>
+                    <li>Full SharePoint feature set</li>
+                    <li>Included in Insite Search</li>
+                    <li>Tighter network security</li>
+                    <li>Pages</li>
+                    <li>Lists</li>
+                    <li>Forms</li>
+                    <li>Apps</li>
+                    <li>Nintex</li>
+                    <li>InfoPath</li>
+                  </ul>
+                </div>
+                <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
+                  <h3>Cons</h3>
+                  <ul>
+                    <li>No O365 services</li>
+                    <li>No mobile access</li>
+                  </ul>
+                </div>
               </div>
-              <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
-                <h3>Cons</h3>
-                <ul>
-                  <li>No O365 services</li>
-                  <li>No mobile access</li>
-                </ul>
-              </div>
-            </div>
-          </md-card-content>
-          <md-divider></md-divider>
-          <md-card-actions>
-            <button md-mini-fab color="accent">
-              <md-icon>check circle</md-icon>
-            </button>
-          </md-card-actions>
-        </md-card>
+            </md-card-content>
+            <md-divider></md-divider>
+            <md-card-actions>
+              <button md-mini-fab color="accent" disabled>
+                <md-icon>check circle</md-icon>
+              </button>
+            </md-card-actions>
+          </md-card>
+        </div>
       </div>
-      <div id="openAllYes" layout="row">
+      <div *ngIf="checked" id="openAllYes" layout="row">
         <!-- AEM Site Card -->
-        <md-card>
-          <md-card-title>AEM Site</md-card-title>
-          <md-card-subtitle>The Visa Corporate intranet is intended to be the source of authoritative information.</md-card-subtitle>
-          <md-divider></md-divider>
-          <md-card-content>
-            <div layout="row">
-              <div class="md-card-content-prosconsSection">
-                <h3>Pros</h3>
-                <ul>
-                  <li>Polished look and feel</li>
-                  <li>Included in Insite search</li>
-                  <li>Content authors to help publish content</li>
-                  <li>An Editor will curate your information</li>
-                </ul>
+        <div flex>
+          <md-card>
+            <md-card-title>AEM Site</md-card-title>
+            <md-card-subtitle>The Visa Corporate intranet is intended to be the source of authoritative information.</md-card-subtitle>
+            <md-divider></md-divider>
+            <md-card-content>
+              <div layout="row">
+                <div class="md-card-content-prosconsSection">
+                  <h3>Pros</h3>
+                  <ul>
+                    <li>Polished look and feel</li>
+                    <li>Included in Insite search</li>
+                    <li>Content authors to help publish content</li>
+                    <li>An Editor will curate your information</li>
+                  </ul>
+                </div>
+                <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
+                  <h3>Cons</h3>
+                  <ul>
+                    <li>Limited customization</li>
+                    <li>No forms</li>
+                    <li>No automation</li>
+                    <li>An Editor will curate your information</li>
+                    <li>Limited mobile options</li>
+                  </ul>
+                </div>
               </div>
-              <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
-                <h3>Cons</h3>
-                <ul>
-                  <li>Limited customization</li>
-                  <li>No forms</li>
-                  <li>No automation</li>
-                  <li>An Editor will curate your information</li>
-                  <li>Limited mobile options</li>
-                </ul>
-              </div>
-            </div>
-          </md-card-content>
-          <md-divider></md-divider>
-          <md-card-actions>
-            <button md-mini-fab color="accent">
-              <md-icon>check circle</md-icon>
-            </button>
-          </md-card-actions>
-        </md-card>
+            </md-card-content>
+            <md-divider></md-divider>
+            <md-card-actions>
+              <button md-mini-fab color="accent" disabled>
+                <md-icon>check circle</md-icon>
+              </button>
+            </md-card-actions>
+          </md-card>
+        </div>
         <!-- SP Online Site Card -->
-        <md-card>
-          <md-card-title>SP Online Site</md-card-title>
-          <md-card-subtitle>A cloud version of the SharePoint team sites you've used previously on the Visa network.</md-card-subtitle>
-          <md-divider></md-divider>
-          <md-card-content>
-            <div layout="row">
-              <div class="md-card-content-prosconsSection">
-                <h3>Pros</h3>
-                <ul>
-                  <li>Core SharePoint feature set</li>
-                  <li>Full O365 services</li>
-                  <li>Mobile Access</li>
-                  <li>Some customizations possible</li>
-                  <li>Pages</li>
-                  <li>Lists</li>
-                  <li>Forms</li>
-                  <li>Apps</li>
-                </ul>
+        <div flex>
+          <md-card>
+            <md-card-title>SP Online Site</md-card-title>
+            <md-card-subtitle>A cloud version of the SharePoint team sites you've used previously on the Visa network.</md-card-subtitle>
+            <md-divider></md-divider>
+            <md-card-content>
+              <div layout="row">
+                <div class="md-card-content-prosconsSection">
+                  <h3>Pros</h3>
+                  <ul>
+                    <li>Core SharePoint feature set</li>
+                    <li>Full O365 services</li>
+                    <li>Mobile Access</li>
+                    <li>Some customizations possible</li>
+                    <li>Pages</li>
+                    <li>Lists</li>
+                    <li>Forms</li>
+                    <li>Apps</li>
+                  </ul>
+                </div>
+                <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
+                  <h3>Cons</h3>
+                  <ul>
+                    <li>More complex and advanced</li>
+                    <li>No integration with resources on the Visa network</li>
+                    <li>No Nintex</li>
+                    <li>No InfoPath</li>
+                    <li>Limited look and feel options</li>
+                    <li>Not included in Insite search</li>
+                  </ul>
+                </div>
               </div>
-              <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
-                <h3>Cons</h3>
-                <ul>
-                  <li>More complex and advanced</li>
-                  <li>No integration with resources on the Visa network</li>
-                  <li>No Nintex</li>
-                  <li>No InfoPath</li>
-                  <li>Limited look and feel options</li>
-                  <li>Not included in Insite search</li>
-                </ul>
-              </div>
-            </div>
-          </md-card-content>
-          <md-divider></md-divider>
-          <md-card-actions>
-            <button md-mini-fab color="accent">
-              <md-icon>check circle</md-icon>
-            </button>
-          </md-card-actions>
-        </md-card>
+            </md-card-content>
+            <md-divider></md-divider>
+            <md-card-actions>
+              <button md-mini-fab color="accent">
+                <md-icon>check circle</md-icon>
+              </button>
+            </md-card-actions>
+          </md-card>
+        </div>
         <!-- SP On-Prem Site Card -->
-        <md-card>
-          <md-card-title>SP On-Premises Site</md-card-title>
-          <md-card-subtitle>SP site hosted on our internal shared server farm to allow for more advanced customizations.</md-card-subtitle>
-          <md-divider></md-divider>
-          <md-card-content>
-            <div layout="row">
-              <div class="md-card-content-prosconsSection">
-                <h3>Pros</h3>
-                <ul>
-                  <li>Full SharePoint feature set</li>
-                  <li>Included in Insite Search</li>
-                  <li>Tighter network security</li>
-                  <li>Nintex</li>
-                  <li>InfoPath</li>
-                </ul>
+        <div flex>
+          <md-card>
+            <md-card-title>SP On-Premises Site</md-card-title>
+            <md-card-subtitle>SP site hosted on our internal shared server farm to allow for more advanced customizations.</md-card-subtitle>
+            <md-divider></md-divider>
+            <md-card-content>
+              <div layout="row">
+                <div class="md-card-content-prosconsSection">
+                  <h3>Pros</h3>
+                  <ul>
+                    <li>Full SharePoint feature set</li>
+                    <li>Included in Insite Search</li>
+                    <li>Tighter network security</li>
+                    <li>Nintex</li>
+                    <li>InfoPath</li>
+                  </ul>
+                </div>
+                <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
+                  <h3>Cons</h3>
+                  <ul>
+                    <li>No O365 services</li>
+                    <li>No mobile access</li>
+                  </ul>
+                </div>
               </div>
-              <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
-                <h3>Cons</h3>
-                <ul>
-                  <li>No O365 services</li>
-                  <li>No mobile access</li>
-                </ul>
-              </div>
-            </div>
-          </md-card-content>
-          <md-divider></md-divider>
-          <md-card-actions>
-            <button md-mini-fab color="accent">
-              <md-icon>check circle</md-icon>
-            </button>
-          </md-card-actions>
-        </md-card>
+            </md-card-content>
+            <md-divider></md-divider>
+            <md-card-actions>
+              <button md-mini-fab color="accent">
+                <md-icon>check circle</md-icon>
+              </button>
+            </md-card-actions>
+          </md-card>
+        </div>
       </div>
       <template td-step-actions>
         <button md-raised-button (click)="step1.state='none'; step1.disabled=false; step1.open(); step2.disabled=true;">Previous Step</button>

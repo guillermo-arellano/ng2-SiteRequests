@@ -20,6 +20,8 @@ export class AppComponent {
   //Initialization
   disabled: boolean = true;
   stepState: string = 'none';
+  checked: boolean = false;
+  checkCircleDisabled: boolean = true;
 
   change(event: IStepChangeEvent): void {
     return;
@@ -31,6 +33,10 @@ export class AppComponent {
 
   deactiveEvent(): void {
     return;
+  }
+
+  toggleDisable(): void {
+    this.checkCircleDisabled = !this.checkCircleDisabled;
   }
 
 }
