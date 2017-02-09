@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { StepState } from '@covalent/core';
-import { IStepChangeEvent, CovalentSearchModule } from '@covalent/core';
 
 export class Step {
   id: number;
@@ -23,9 +22,6 @@ export class AppComponent {
   checked: boolean = false;
   checkCircleDisabled: boolean = true;
 
-  change(event: IStepChangeEvent): void {
-    return;
-  }
 
   activeEvent(): void {
     return;
@@ -36,7 +32,9 @@ export class AppComponent {
   }
 
   toggleDisable(): void {
-    this.checkCircleDisabled = !this.checkCircleDisabled;
+    console.log("Hello?!");
+    this.checkCircleDisabled = !(this.checkCircleDisabled);
+    
   }
 
 }

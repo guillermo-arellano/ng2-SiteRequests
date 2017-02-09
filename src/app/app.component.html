@@ -3,7 +3,7 @@
     <span>{{title}}</span>
   </md-toolbar>
 
-  <td-steps (stepChange)="change($event)" mode="horizontal">
+  <td-steps mode="horizontal">
     <td-step #step1 label="Start Site Request" 
             [state]="none"
             [active]="true" 
@@ -23,12 +23,12 @@
       <div *ngIf="!checked" id="openAllNo" layout="row">
         <div flex>
           <!-- O365 Group Site Card -->
-          <md-card>
+          <md-card flex>
             <md-card-title>O365 Group Site</md-card-title>
             <md-card-subtitle>A security/distribution group that can be used to manage access to sites and services across Office 365 and the Visa network.</md-card-subtitle>
             <md-divider></md-divider>
-            <md-card-content>
-              <div layout="row">
+            <md-card-content class="md-card-content-prosconsSections">
+              <div layout="row" layout-align="center">
                 <div class="md-card-content-prosconsSection">
                   <h3>Pros</h3>
                   <ul>
@@ -56,7 +56,7 @@
             </md-card-content>
             <md-divider></md-divider>
             <md-card-actions>
-              <button md-mini-fab color="accent" [disabled]="checkCircleDisabled" (click)="toggleDisable()">
+              <button md-mini-fab color="accent" (click)="toggleDisable()">
                 <md-icon>check circle</md-icon>
               </button>
               <div>{{checkCircleDisabled}}</div>
@@ -65,12 +65,12 @@
         </div>
         <!-- SP Online Site Card -->
         <div flex>
-          <md-card>
+          <md-card flex>
             <md-card-title>SP Online Site</md-card-title>
             <md-card-subtitle>A cloud version of the SharePoint team sites you've used previously on the Visa network.</md-card-subtitle>
             <md-divider></md-divider>
-            <md-card-content>
-              <div layout="row">
+            <md-card-content class="md-card-content-prosconsSections">
+              <div layout="row" layout-align="center">
                 <div class="md-card-content-prosconsSection">
                   <h3>Pros</h3>
                   <ul>
@@ -88,7 +88,7 @@
                   <h3>Cons</h3>
                   <ul>
                     <li>More complex and advanced</li>
-                    <li>No integration with resources on the Visa network</li>
+                    <li>No integration with<br/> Visa network resources</li>
                     <li>No Nintex</li>
                     <li>No InfoPath</li>
                   </ul>
@@ -97,7 +97,7 @@
             </md-card-content>
             <md-divider></md-divider>
             <md-card-actions>
-              <button md-mini-fab color="accent" disabled>
+              <button md-mini-fab color="accent">
                 <md-icon>check circle</md-icon>
               </button>
             </md-card-actions>
@@ -109,8 +109,8 @@
             <md-card-title>SP On-Premises Site</md-card-title>
             <md-card-subtitle>SP Publishing site hosted on our internal shared server farm to allow for more advanced customizations.</md-card-subtitle>
             <md-divider></md-divider>
-            <md-card-content>
-              <div layout="row">
+            <md-card-content class="md-card-content-prosconsSections">
+              <div layout="row" layout-align="center">
                 <div class="md-card-content-prosconsSection">
                   <h3>Pros</h3>
                   <ul>
@@ -150,8 +150,8 @@
             <md-card-title>AEM Site</md-card-title>
             <md-card-subtitle>The Visa Corporate intranet is intended to be the source of authoritative information.</md-card-subtitle>
             <md-divider></md-divider>
-            <md-card-content>
-              <div layout="row">
+            <md-card-content class="md-card-content-prosconsSections">
+              <div layout="row" layout-align="center">
                 <div class="md-card-content-prosconsSection">
                   <h3>Pros</h3>
                   <ul>
@@ -187,8 +187,8 @@
             <md-card-title>SP Online Site</md-card-title>
             <md-card-subtitle>A cloud version of the SharePoint team sites you've used previously on the Visa network.</md-card-subtitle>
             <md-divider></md-divider>
-            <md-card-content>
-              <div layout="row">
+            <md-card-content class="md-card-content-prosconsSections">
+              <div layout="row" layout-align="center">
                 <div class="md-card-content-prosconsSection">
                   <h3>Pros</h3>
                   <ul>
@@ -229,8 +229,8 @@
             <md-card-title>SP On-Premises Site</md-card-title>
             <md-card-subtitle>SP site hosted on our internal shared server farm to allow for more advanced customizations.</md-card-subtitle>
             <md-divider></md-divider>
-            <md-card-content>
-              <div layout="row">
+            <md-card-content class="md-card-content-prosconsSections">
+              <div layout="row" layout-align="center">
                 <div class="md-card-content-prosconsSection">
                   <h3>Pros</h3>
                   <ul>

@@ -4,6 +4,10 @@ button {
 }
 
 /* Pros/Cons styles inside card content */
+.md-card-content-prosconsSections {
+    height: 200px;
+}
+
 .md-card-content-prosconsSection h3 {
     margin: 0px 0px 12px 0px;
     font-weight: 100;
