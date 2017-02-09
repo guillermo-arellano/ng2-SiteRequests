@@ -3,6 +3,11 @@ button {
     margin: 5px;
 }
 
+/* Material Card custom stylings */
+.card-selected {
+    background-color: #ffd57f;
+}
+
 /* Pros/Cons styles inside card content */
 .md-card-content-prosconsSections {
     height: 200px;
