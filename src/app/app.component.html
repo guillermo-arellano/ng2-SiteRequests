@@ -3,7 +3,7 @@
     <span>{{title}}</span>
   </md-toolbar>
 
-  <td-steps (stepChange)="change($event)" mode="horizontal">
+  <td-steps (stepChange)="change($event)" [mode]="(media.registerQuery('gt-sm') | async) ? 'horizontal' : 'vertical'">
     <td-step #step1 label="Start Site Request" 
             [state]="none"
             [active]="true" 
@@ -21,129 +21,129 @@
             [state]="none" 
             [disabled]="disabled">
       
-        <div *ngIf="!checked" id="openAllNo" layout="row">
-            <div flex>
-              <!-- O365 Group Site Card -->
-              <md-card flex [ngClass]="{'card-selected': sitecards[0].selectedClass}">
-                <md-card-title>O365 Group Site</md-card-title>
-                <md-card-subtitle>A security/distribution group that can be used to manage access to sites and services across Office 365 and the Visa network.</md-card-subtitle>
-                <md-divider></md-divider>
-                <md-card-content class="md-card-content-prosconsSections">
-                  <div layout="row" layout-align="center">
-                    <div class="md-card-content-prosconsSection">
-                      <h3>Pros</h3>
-                      <ul>
-                        <li>Simple document library (SP)</li>
-                        <li>Mobile Access</li>
-                        <li>Shared Mailbox (Exchange)</li>
-                        <li>Shared Calendar (Exchange)</li>
-                        <li>Distribution List (Exchange)</li>
-                        <li>Task Board (Planner)</li>
-                      </ul>
-                    </div>
-                    <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
-                      <h3>Cons</h3>
-                      <ul>
-                        <li>No lists</li>
-                        <li>No forms</li>
-                        <li>No pages</li>
-                        <li>Basic UI</li>
-                        <li>No customization</li>
-                        <li>No apps</li>
-                        <li>Small audiences</li>
-                      </ul>
-                    </div>
+        <div *ngIf="!checked" id="openAllNo" layout="column" layout-gt-sm="row">
+          <div id='what1' flex>
+            <!-- O365 Group Site Card -->
+            <md-card [ngClass]="{'card-selected': sitecards[0].selectedClass}">
+              <md-card-title>O365 Group Site</md-card-title>
+              <md-card-subtitle>A security/distribution group that can be used to manage access to sites and services across Office 365 and the Visa network.</md-card-subtitle>
+              <md-divider></md-divider>
+              <md-card-content class="md-card-content-prosconsSections">
+                <div layout="row" layout-align="center">
+                  <div class="md-card-content-prosconsSection">
+                    <h3>Pros</h3>
+                    <ul>
+                      <li>Simple document library (SP)</li>
+                      <li>Mobile Access</li>
+                      <li>Shared Mailbox (Exchange)</li>
+                      <li>Shared Calendar (Exchange)</li>
+                      <li>Distribution List (Exchange)</li>
+                      <li>Task Board (Planner)</li>
+                    </ul>
                   </div>
-                </md-card-content>
-                <md-divider></md-divider>
-                <md-card-actions>
-                  <button md-mini-fab color="accent" (click)="toggleCardSelected('closed_O365_Group_Site')" ngDefaultControl>
-                    <md-icon>check circle</md-icon>
-                  </button>
-                </md-card-actions>
-              </md-card>
-            </div>
+                  <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
+                    <h3>Cons</h3>
+                    <ul>
+                      <li>No lists</li>
+                      <li>No forms</li>
+                      <li>No pages</li>
+                      <li>Basic UI</li>
+                      <li>No customization</li>
+                      <li>No apps</li>
+                      <li>Small audiences</li>
+                    </ul>
+                  </div>
+                </div>
+              </md-card-content>
+              <md-divider></md-divider>
+              <md-card-actions>
+                <button md-mini-fab color="accent" (click)="toggleCardSelected('closed_O365_Group_Site')" ngDefaultControl>
+                  <md-icon>check circle</md-icon>
+                </button>
+              </md-card-actions>
+            </md-card>
+          </div>
             <!-- SP Online Site Card -->
-            <div flex>
-              <md-card flex [ngClass]="{'card-selected': sitecards[1].selectedClass}">
-                <md-card-title>SP Online Site</md-card-title>
-                <md-card-subtitle>A cloud version of the SharePoint team sites you've used previously on the Visa network.</md-card-subtitle>
-                <md-divider></md-divider>
-                <md-card-content class="md-card-content-prosconsSections">
-                  <div layout="row" layout-align="center">
-                    <div class="md-card-content-prosconsSection">
-                      <h3>Pros</h3>
-                      <ul>
-                        <li>Core SharePoint feature set</li>
-                        <li>Full O365 services</li>
-                        <li>Mobile Access</li>
-                        <li>Some customizations possible</li>
-                        <li>Pages</li>
-                        <li>Lists</li>
-                        <li>Forms</li>
-                        <li>Apps</li>
-                      </ul>
-                    </div>
-                    <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
-                      <h3>Cons</h3>
-                      <ul>
-                        <li>More complex and advanced</li>
-                        <li>No integration with<br/> Visa network resources</li>
-                        <li>No Nintex</li>
-                        <li>No InfoPath</li>
-                      </ul>
-                    </div>
+          <div id='what2' flex>
+            <md-card [ngClass]="{'card-selected': sitecards[1].selectedClass}">
+              <md-card-title>SP Online Site</md-card-title>
+              <md-card-subtitle>A cloud version of the SharePoint team sites you've used previously on the Visa network.</md-card-subtitle>
+              <md-divider></md-divider>
+              <md-card-content class="md-card-content-prosconsSections">
+                <div layout="row" layout-align="center">
+                  <div class="md-card-content-prosconsSection">
+                    <h3>Pros</h3>
+                    <ul>
+                      <li>Core SharePoint feature set</li>
+                      <li>Full O365 services</li>
+                      <li>Mobile Access</li>
+                      <li>Some customizations possible</li>
+                      <li>Pages</li>
+                      <li>Lists</li>
+                      <li>Forms</li>
+                      <li>Apps</li>
+                    </ul>
                   </div>
-                </md-card-content>
-                <md-divider></md-divider>
-                <md-card-actions>
-                  <button md-mini-fab color="accent" (click)="toggleCardSelected('closed_SP_Online_Site')" ngDefaultControl>
-                    <md-icon>check circle</md-icon>
-                  </button>
-                </md-card-actions>
-              </md-card>
-            </div>
+                  <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
+                    <h3>Cons</h3>
+                    <ul>
+                      <li>More complex and advanced</li>
+                      <li>No integration with<br/> Visa network resources</li>
+                      <li>No Nintex</li>
+                      <li>No InfoPath</li>
+                    </ul>
+                  </div>
+                </div>
+              </md-card-content>
+              <md-divider></md-divider>
+              <md-card-actions>
+                <button md-mini-fab color="accent" (click)="toggleCardSelected('closed_SP_Online_Site')" ngDefaultControl>
+                  <md-icon>check circle</md-icon>
+                </button>
+              </md-card-actions>
+            </md-card>
+          </div>
+          <div id='what3' flex>
             <!-- SP On-Prem Site Card -->
-            <div flex>
-              <md-card [ngClass]="{'card-selected': sitecards[2].selectedClass}">
-                <md-card-title>SP On-Premises Site</md-card-title>
-                <md-card-subtitle>SP Publishing site hosted on our internal shared server farm to allow for more advanced customizations.</md-card-subtitle>
-                <md-divider></md-divider>
-                <md-card-content class="md-card-content-prosconsSections">
-                  <div layout="row" layout-align="center">
-                    <div class="md-card-content-prosconsSection">
-                      <h3>Pros</h3>
-                      <ul>
-                        <li>Full SharePoint feature set</li>
-                        <li>Included in Insite Search</li>
-                        <li>Tighter network security</li>
-                        <li>Pages</li>
-                        <li>Lists</li>
-                        <li>Forms</li>
-                        <li>Apps</li>
-                        <li>Nintex</li>
-                        <li>InfoPath</li>
-                      </ul>
-                    </div>
-                    <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
-                      <h3>Cons</h3>
-                      <ul>
-                        <li>No O365 services</li>
-                        <li>No mobile access</li>
-                      </ul>
-                    </div>
+            <md-card [ngClass]="{'card-selected': sitecards[2].selectedClass}">
+              <md-card-title>SP On-Premises Site</md-card-title>
+              <md-card-subtitle>SP Publishing site hosted on our internal shared server farm to allow for more advanced customizations.</md-card-subtitle>
+              <md-divider></md-divider>
+              <md-card-content class="md-card-content-prosconsSections">
+                <div layout="row" layout-align="center">
+                  <div class="md-card-content-prosconsSection">
+                    <h3>Pros</h3>
+                    <ul>
+                      <li>Full SharePoint feature set</li>
+                      <li>Included in Insite Search</li>
+                      <li>Tighter network security</li>
+                      <li>Pages</li>
+                      <li>Lists</li>
+                      <li>Forms</li>
+                      <li>Apps</li>
+                      <li>Nintex</li>
+                      <li>InfoPath</li>
+                    </ul>
                   </div>
-                </md-card-content>
-                <md-divider></md-divider>
-                <md-card-actions>
-                  <button md-mini-fab color="accent" (click)="toggleCardSelected('closed_SP_OnPrem_Site')" ngDefaultControl>
-                    <md-icon>check circle</md-icon>
-                  </button>
-                </md-card-actions>
-              </md-card>
-            </div>
+                  <div class="md-card-content-prosconsSection md-card-content-prosconsSection--cons">
+                    <h3>Cons</h3>
+                    <ul>
+                      <li>No O365 services</li>
+                      <li>No mobile access</li>
+                    </ul>
+                  </div>
+                </div>
+              </md-card-content>
+              <md-divider></md-divider>
+              <md-card-actions>
+                <button md-mini-fab color="accent" (click)="toggleCardSelected('closed_SP_OnPrem_Site')" ngDefaultControl>
+                  <md-icon>check circle</md-icon>
+                </button>
+              </md-card-actions>
+            </md-card>
+          </div>
         </div>
-        <div *ngIf="checked" id="openAllYes" layout="row">
+        <div *ngIf="checked" id="openAllYes" layout="column" layout-gt-sm="row">
           <!-- AEM Site Card -->
           <div flex>
             <md-card [ngClass]="{'card-selected': sitecards[3].selectedClass}">
@@ -263,7 +263,6 @@
         <button md-raised-button (click)="step1.state='none'; step1.disabled=false; step1.open(); step2.disabled=true;">Previous Step</button>
         <button md-raised-button color="primary" (click)="step2.state='complete'; step2.disabled=true; step3.disabled=false; step3.open();" [disabled]="siteCardSelected.siteType === 6">Next Step</button>
       </template>
-
     </td-step>
 
     <td-step #step3 label="Site Name and Owners" 
