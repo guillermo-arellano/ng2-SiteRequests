@@ -1,26 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { StepState } from '@covalent/core';
 
-export class Card {
-  constructor(
-    public card1: boolean,
-    public card2: boolean,
-    public card3: boolean
-  ) {  }
-}
-
 enum SiteType {
   closed_O365_Group_Site,
   closed_SP_Online_Site,
   closed_SP_OnPrem_Site,
-  opened_O365_Group_Site,
+  opened_AEM_Site,
   opened_SP_Online_Site,
   opened_SP_OnPrem_Site,
+  dummy_site
 }
 
 export class SiteCard {
     siteType: SiteType;
+    siteTypeText: string;
     selectedClass: boolean;
+}
+
+export class SiteRequest {
+    open_site: boolean;
+    siteType: string;
+    siteName: string;
+    siteUrl: string;
+    ownerPrimary: string;
+    ownerSecondary: string;
+}
+
+export class SiteInfo {
+    siteName: string;
+    siteOwnerPrimary: string;
+    siteOwnerSecondary: string;
 }
 
 @Component({
@@ -32,38 +41,76 @@ export class SiteCard {
 
 export class AppComponent implements OnInit  {
   title = 'Site Requests App';
+  
   //Initialization
-  disabled: boolean = true;
-  stepState: string = 'none';
-  checked: boolean = false;
-  modelCardSelected: boolean = false;
+  checked: boolean;
   sitecards: SiteCard[];
+  siteCardSelected: SiteCard;
+  siteRequestObj: SiteRequest;
+  siteFormModel: SiteInfo;
+  
 
   ngOnInit (): void {
     this.setFormVariables();
+    this.setSiteCardFormVars();
   }
 
-  setFormVariables(): void {
+  setSiteCardFormVars(): void {
      this.sitecards = [
-      {siteType: SiteType.closed_O365_Group_Site, selectedClass: false},
-      {siteType: SiteType.closed_SP_Online_Site, selectedClass: false},
-      {siteType: SiteType.closed_SP_OnPrem_Site, selectedClass: false},
-      {siteType: SiteType.opened_O365_Group_Site, selectedClass: false},
-      {siteType: SiteType.opened_SP_Online_Site, selectedClass: false},
-      {siteType: SiteType.opened_SP_OnPrem_Site, selectedClass: false}
+      {siteType: SiteType.closed_O365_Group_Site, siteTypeText: "O365 Group Site", selectedClass: false},
+      {siteType: SiteType.closed_SP_Online_Site, siteTypeText: "SP Online Site", selectedClass: false},
+      {siteType: SiteType.closed_SP_OnPrem_Site, siteTypeText: "SP OnPrem Site", selectedClass: false},
+      {siteType: SiteType.opened_AEM_Site, siteTypeText: "AEM Site", selectedClass: false},
+      {siteType: SiteType.opened_SP_Online_Site, siteTypeText: "SP Online Site", selectedClass: false},
+      {siteType: SiteType.opened_SP_OnPrem_Site,siteTypeText: "SP OnPrem Site",  selectedClass: false}
     ] 
   }
 
-  toggleCardSelected(type: string): void {
-    this.resetVariables();
-    let temp = SiteType[type];
-    console.log(temp);
-    this.sitecards[temp].selectedClass = true;
-    console.log(this.sitecards[temp].selectedClass);
+  setFormVariables(): void {
+    this.checked= false;
+    this.siteCardSelected= {
+      siteType: SiteType.dummy_site, 
+      siteTypeText: '',
+      selectedClass: false
+    };
+    this.siteRequestObj = {
+      open_site: false,
+      siteType: '',
+      siteName: '',
+      siteUrl: '',
+      ownerPrimary: '',
+      ownerSecondary: ''
+    };
+    this.siteFormModel= {
+      siteName: '',
+      siteOwnerPrimary: '',
+      siteOwnerSecondary: ''
+    };
   }
 
-  resetVariables(): void {
+  toggleCardSelected(type: string): void {
+    this.resetSiteCardFormVars();
+    let siteTypeEnumValue = SiteType[type];
+    this.sitecards[siteTypeEnumValue].selectedClass = true;
+    this.siteCardSelected = this.sitecards.filter(item => item.selectedClass === true)[0];
+  }
+
+  resetSiteCardFormVars(): void {
+    this.setSiteCardFormVars();
+  }
+
+  resetEntireSiteRequestForm(): void{
+    this.setSiteCardFormVars();
     this.setFormVariables();
+  }
+
+  createSiteRequestObj (): void {
+    this.siteRequestObj.open_site= this.checked;
+    this.siteRequestObj.siteType= this.siteCardSelected.siteTypeText;
+    this.siteRequestObj.siteName= this.siteFormModel.siteName;
+    this.siteRequestObj.siteUrl= '';
+    this.siteRequestObj.ownerPrimary= this.siteFormModel.siteOwnerPrimary;
+    this.siteRequestObj.ownerSecondary= this.siteFormModel.siteOwnerSecondary;
   }
 
 }
