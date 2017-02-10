@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StepState } from '@covalent/core';
+import { StepState, IStepChangeEvent } from '@covalent/core';
 
 enum SiteType {
   closed_O365_Group_Site,
@@ -112,6 +112,10 @@ export class AppComponent implements OnInit  {
     this.siteRequestObj.ownerPrimary= this.siteFormModel.siteOwnerPrimary;
     this.siteRequestObj.ownerSecondary= this.siteFormModel.siteOwnerSecondary;
   }
+
+ change(event: IStepChangeEvent): void {
+    //console.log(event);
+  };
 
 }
 

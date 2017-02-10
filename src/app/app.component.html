@@ -3,7 +3,7 @@
     <span>{{title}}</span>
   </md-toolbar>
 
-  <td-steps mode="horizontal">
+  <td-steps (stepChange)="change($event)" mode="horizontal">
     <td-step #step1 label="Start Site Request" 
             [state]="none"
             [active]="true" 
