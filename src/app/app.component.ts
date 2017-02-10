@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StepState, IStepChangeEvent } from '@covalent/core';
+import { StepState, IStepChangeEvent, TdMediaService } from '@covalent/core';
 
 enum SiteType {
   closed_O365_Group_Site,
@@ -49,6 +49,7 @@ export class AppComponent implements OnInit  {
   siteRequestObj: SiteRequest;
   siteFormModel: SiteInfo;
   
+  constructor(public media: TdMediaService){}
 
   ngOnInit (): void {
     this.setFormVariables();
