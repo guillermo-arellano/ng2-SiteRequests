@@ -43,6 +43,7 @@ export class AppComponent implements OnInit  {
   title = 'Site Requests App';
   
   //Initialization
+  disabled: boolean = true;
   checked: boolean;
   sitecards: SiteCard[];
   siteCardSelected: SiteCard;
