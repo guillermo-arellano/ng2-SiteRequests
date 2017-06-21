@@ -1,8 +1,17 @@
 # Ng2SiteRequests
 
+## Description
+
+Proof-of-concept front end for a collaboration site request system. Form used internally to request SharePoint team sites or Adobe Experience Manager (AEM) content site. 
+
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
+It uses the [Covalent UI Platform](https://teradata.github.io/covalent/) version 1.0.0-beta.1-1 (Jan. 31, 2017) for the user interface design. 
+
+Using [Angular](https://angular.io/) version 2.3.1 for the JavaScript framework.
+
 ## Development server
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
