@@ -37,8 +37,6 @@ export class SiteInfo {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-
-
 export class AppComponent implements OnInit  {
   title = 'Site Requests App';
   
@@ -49,6 +47,7 @@ export class AppComponent implements OnInit  {
   siteCardSelected: SiteCard;
   siteRequestObj: SiteRequest;
   siteFormModel: SiteInfo;
+  stateNone: StepState = StepState.None;
   
   constructor(public media: TdMediaService){}
 

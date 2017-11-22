@@ -5,9 +5,9 @@
 
   <td-steps (stepChange)="change($event)" [mode]="(media.registerQuery('gt-sm') | async) ? 'horizontal' : 'vertical'">
     <td-step #step1 label="Start Site Request" 
-            [state]="none"
             [active]="true" 
-            [disabled]="false">
+            [disabled]="false"
+            [state]="stateNone">
       <p>Does your site need to be opened to all of Visa?</p>
       <mat-checkbox [(ngModel)]="checked">
         Yes, open to all of Visa Inc
@@ -18,7 +18,7 @@
     </td-step>
     
     <td-step #step2 label="Select Site Type" 
-            [state]="none" 
+            [state]= "" 
             [disabled]="disabled">
       
         <div *ngIf="!checked" id="openAllNo" layout="column" layout-gt-sm="row">
@@ -266,7 +266,7 @@
     </td-step>
 
     <td-step #step3 label="Site Name and Owners" 
-            [state]="none" 
+            [state]="stateNone" 
             [disabled]="disabled">
       <!-- Inputs -->
       <form #siteInfoForm="ngForm">
@@ -293,7 +293,7 @@
     </td-step>
 
     <td-step #step4 label="Review Site Request" 
-            [state]="none" 
+            [state]="stateNone" 
             [disabled]="disabled">
       <p></p>
       <div>
@@ -343,7 +343,7 @@
     </td-step>
 
     <td-step #step5 label="Request Complete" 
-            [state]="none" 
+            [state]="stateNone" 
             [disabled]="disabled">
       <mat-card>
         <mat-card-title>Site Request Submitted</mat-card-title>
