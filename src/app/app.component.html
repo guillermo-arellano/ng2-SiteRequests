@@ -272,17 +272,17 @@
       <form #siteInfoForm="ngForm">
         <div layout="row" layout-margin>
           <mat-input-container flex>
-            <input md-input type="text" [(ngModel)]="siteFormModel.siteName" name="siteName" placeholder="Proposed Site Name" required>
+            <input matInput type="text" [(ngModel)]="siteFormModel.siteName" name="siteName" placeholder="Proposed Site Name" required>
           </mat-input-container>
         </div>
         <div layout="row" layout-margin>
           <mat-input-container flex>
-            <input md-input type="text" [(ngModel)]="siteFormModel.siteOwnerPrimary" name="siteOwnerPrimary" placeholder="Enter Name of Primary Site Owner" required>
+            <input matInput type="text" [(ngModel)]="siteFormModel.siteOwnerPrimary" name="siteOwnerPrimary" placeholder="Enter Name of Primary Site Owner" required>
           </mat-input-container>
         </div>
         <div layout="row" layout-margin>
           <mat-input-container flex>
-            <input md-input type="text" [(ngModel)]="siteFormModel.siteOwnerSecondary" name="siteOwnerSecondary" placeholder="Enter Name of Secondary Site Owner" required>
+            <input matInput type="text" [(ngModel)]="siteFormModel.siteOwnerSecondary" name="siteOwnerSecondary" placeholder="Enter Name of Secondary Site Owner" required>
           </mat-input-container>
         </div>
       </form>
