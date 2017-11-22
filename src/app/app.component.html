@@ -1,7 +1,7 @@
 <div>
-  <md-toolbar color="primary">
+  <mat-toolbar color="primary">
     <span>{{title}}</span>
-  </md-toolbar>
+  </mat-toolbar>
 
   <td-steps (stepChange)="change($event)" [mode]="(media.registerQuery('gt-sm') | async) ? 'horizontal' : 'vertical'">
     <td-step #step1 label="Start Site Request" 
@@ -9,12 +9,12 @@
             [active]="true" 
             [disabled]="false">
       <p>Does your site need to be opened to all of Visa?</p>
-      <md-checkbox [(ngModel)]="checked">
+      <mat-checkbox [(ngModel)]="checked">
         Yes, open to all of Visa Inc
-      </md-checkbox>
-      <template td-step-actions>
+      </mat-checkbox>
+      <ng-template td-step-actions>
         <button md-raised-button color="primary" (click)="step1.state='complete'; step1.disabled=true; step2.disabled=false; step2.open();">Next Step</button>
-      </template>
+      </ng-template>
     </td-step>
     
     <td-step #step2 label="Select Site Type" 

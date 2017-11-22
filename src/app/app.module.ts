@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MatButtonModule, MatListModule, MatIconModule, MatCardModule, MatMenuModule, MatInputModule, MatButtonToggleModule,
   MatProgressSpinnerModule, MatSelectModule, MatSlideToggleModule, MatDialogModule, MatSnackBarModule, MatToolbarModule,
   MatTabsModule, MatSidenavModule, MatTooltipModule, MatRippleModule, MatRadioModule, MatGridListModule,
-  MatDatepickerModule, MatNativeDateModule, MatSliderModule, MatAutocompleteModule } from '@angular/material';
+  MatDatepickerModule, MatNativeDateModule, MatSliderModule, MatAutocompleteModule, MatCheckboxModule } from '@angular/material';
 import 'hammerjs';
 import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, CovalentExpansionPanelModule,
   CovalentStepsModule, CovalentLoadingModule, CovalentDialogsModule, CovalentSearchModule, CovalentPagingModule,
@@ -45,6 +45,7 @@ import { AppComponent } from './app.component';
     MatNativeDateModule, 
     MatSliderModule, 
     MatAutocompleteModule,
+    MatCheckboxModule,
     /** Covalent Modules */
     CovalentCommonModule,
     CovalentLayoutModule, 
