@@ -4,11 +4,15 @@
 
 Proof-of-concept front end for a collaboration site request system. Form used internally to request SharePoint team sites or Adobe Experience Manager (AEM) content site. 
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+**Updated November 2017**
 
-It uses the [Covalent UI Platform](https://teradata.github.io/covalent/) version 1.0.0-beta.1-1 (Jan. 31, 2017) for the user interface design. 
+* This project was updated to use [angular-cli](https://github.com/angular/angular-cli) version 1.5.3.
 
-Using [Angular](https://angular.io/) version 2.3.1 for the JavaScript framework.
+* It uses the [Covalent UI Platform](https://teradata.github.io/covalent/) version 1.0.0-rc.0 (Nov 14, 2017) for the user interface design. 
+
+* Updated to version 5.0.0 of [Angular](https://angular.io/) JavaScript framework.
+
+* [Change Log](https://github.com/guillermoarellano/ng2-SiteRequests/blob/master/CHANGELOG.md)
 
 ## Development server
 
@@ -20,7 +24,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build. Add the `--aot` flag for removal of the Angular compiler and smaller file.
 
 ## Running unit tests
 
