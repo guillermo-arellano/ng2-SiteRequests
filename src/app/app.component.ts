@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material';
 import { StepState, IStepChangeEvent, TdMediaService } from '@covalent/core';
 
 enum SiteType {
@@ -42,14 +44,23 @@ export class AppComponent implements OnInit  {
   
   //Initialization
   disabled: boolean = true;
-  checked: boolean;
+  checked: boolean = false;
   sitecards: SiteCard[];
   siteCardSelected: SiteCard;
   siteRequestObj: SiteRequest;
   siteFormModel: SiteInfo;
   stateNone: StepState = StepState.None;
   
-  constructor(public media: TdMediaService){}
+  constructor(public media: TdMediaService,
+              private _iconRegistry: MatIconRegistry,
+              private _domSanitizer: DomSanitizer){
+              this._iconRegistry.addSvgIconInNamespace('assets', 'teradata-ux',
+              this._domSanitizer.bypassSecurityTrustResourceUrl('https://raw.githubusercontent.com/Teradata/covalent-quickstart/develop/src/assets/icons/teradata-ux.svg'));
+              this._iconRegistry.addSvgIconInNamespace('assets', 'covalent',
+              this._domSanitizer.bypassSecurityTrustResourceUrl('https://raw.githubusercontent.com/Teradata/covalent-quickstart/develop/src/assets/icons/covalent.svg'));
+              this._iconRegistry.addSvgIconInNamespace('assets', 'covalent-mark',
+              this._domSanitizer.bypassSecurityTrustResourceUrl('https://raw.githubusercontent.com/Teradata/covalent-quickstart/develop/src/assets/icons/covalent-mark.svg'));
+  }
 
   ngOnInit (): void {
     this.setFormVariables();
@@ -114,9 +125,13 @@ export class AppComponent implements OnInit  {
     this.siteRequestObj.ownerSecondary= this.siteFormModel.siteOwnerSecondary;
   }
 
- change(event: IStepChangeEvent): void {
+  change(event: IStepChangeEvent): void {
     //console.log(event);
   };
+
+  boxChecked() {
+    this.checked = !this.checked;
+  }
 
 }
 
