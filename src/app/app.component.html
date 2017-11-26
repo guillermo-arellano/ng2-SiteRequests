@@ -8,12 +8,12 @@
             [active]="true" 
             [disabled]="false"
             [state]="stateNone">
-      <p>Does your site need to be opened to all of Visa?</p>
+      Does your site need to be opened to all in the company? <br><br>
       <mat-checkbox [(ngModel)]="checked">
-        Yes, open to all of Visa Inc
+        Yes, open to all
       </mat-checkbox>
       <ng-template td-step-actions>
-        <button md-raised-button color="primary" (click)="step1.state='complete'; step1.disabled=true; step2.disabled=false; step2.open();">Next Step</button>
+        <button mat-raised-button color="primary" (click)="step1.state='complete'; step1.disabled=true; step2.disabled=false; step2.open();">Next Step</button>
       </ng-template>
     </td-step>
     
@@ -57,7 +57,7 @@
               </mat-card-content>
               <mat-divider></mat-divider>
               <mat-card-actions>
-                <button md-mini-fab color="accent" (click)="toggleCardSelected('closed_O365_Group_Site')" ngDefaultControl>
+                <button mat-mini-fab color="accent" (click)="toggleCardSelected('closed_O365_Group_Site')" ngDefaultControl>
                   <mat-icon>check circle</mat-icon>
                 </button>
               </mat-card-actions>
@@ -97,7 +97,7 @@
               </mat-card-content>
               <mat-divider></mat-divider>
               <mat-card-actions>
-                <button md-mini-fab color="accent" (click)="toggleCardSelected('closed_SP_Online_Site')" ngDefaultControl>
+                <button mat-mini-fab color="accent" (click)="toggleCardSelected('closed_SP_Online_Site')" ngDefaultControl>
                   <mat-icon>check circle</mat-icon>
                 </button>
               </mat-card-actions>
@@ -136,7 +136,7 @@
               </mat-card-content>
               <mat-divider></mat-divider>
               <mat-card-actions>
-                <button md-mini-fab color="accent" (click)="toggleCardSelected('closed_SP_OnPrem_Site')" ngDefaultControl>
+                <button mat-mini-fab color="accent" (click)="toggleCardSelected('closed_SP_OnPrem_Site')" ngDefaultControl>
                   <mat-icon>check circle</mat-icon>
                 </button>
               </mat-card-actions>
@@ -175,7 +175,7 @@
               </mat-card-content>
               <mat-divider></mat-divider>
               <mat-card-actions>
-                <button md-mini-fab color="accent" (click)="toggleCardSelected('opened_AEM_Site')" ngDefaultControl>
+                <button mat-mini-fab color="accent" (click)="toggleCardSelected('opened_AEM_Site')" ngDefaultControl>
                   <mat-icon>check circle</mat-icon>
                 </button>
               </mat-card-actions>
@@ -217,7 +217,7 @@
               </mat-card-content>
               <mat-divider></mat-divider>
               <mat-card-actions>
-                <button md-mini-fab color="accent" (click)="toggleCardSelected('opened_SP_Online_Site')" ngDefaultControl>
+                <button mat-mini-fab color="accent" (click)="toggleCardSelected('opened_SP_Online_Site')" ngDefaultControl>
                   <mat-icon>check circle</mat-icon>
                 </button>
               </mat-card-actions>
@@ -252,7 +252,7 @@
               </mat-card-content>
               <mat-divider></mat-divider>
               <mat-card-actions>
-                <button md-mini-fab color="accent" (click)="toggleCardSelected('opened_SP_OnPrem_Site')" ngDefaultControl>
+                <button mat-mini-fab color="accent" (click)="toggleCardSelected('opened_SP_OnPrem_Site')" ngDefaultControl>
                   <mat-icon>check circle</mat-icon>
                 </button>
               </mat-card-actions>
@@ -260,8 +260,8 @@
           </div>
         </div>
       <ng-template td-step-actions>
-        <button md-raised-button (click)="step1.state='none'; step1.disabled=false; step1.open(); step2.disabled=true;">Previous Step</button>
-        <button md-raised-button color="primary" (click)="step2.state='complete'; step2.disabled=true; step3.disabled=false; step3.open();" [disabled]="siteCardSelected.siteType === 6">Next Step</button>
+        <button mat-raised-button (click)="step1.state='none'; step1.disabled=false; step1.open(); step2.disabled=true;">Previous Step</button>
+        <button mat-raised-button color="primary" (click)="step2.state='complete'; step2.disabled=true; step3.disabled=false; step3.open();" [disabled]="siteCardSelected.siteType === 6">Next Step</button>
       </ng-template>
     </td-step>
 
