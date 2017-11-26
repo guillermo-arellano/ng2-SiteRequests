@@ -302,43 +302,43 @@
           <mat-card-subtitle>Information about your site request</mat-card-subtitle>
           <mat-divider></mat-divider>
           <mat-list>
-            <h3 md-subheader>Captured Metadata</h3>
+            <h3 mat-subheader>Captured Metadata</h3>
             <mat-list-item>
-                <mat-icon md-list-avatar *ngIf="!checked">lock</mat-icon>
-                <mat-icon md-list-avatar *ngIf="checked">lock_open</mat-icon>
-                <h4 md-line>{{siteRequestObj.open_site ? "Yes":"No"}}</h4>
-                <p md-line>Open to all of Visa Inc</p>
+                <mat-icon mat-list-avatar *ngIf="!checked">lock</mat-icon>
+                <mat-icon mat-list-avatar *ngIf="checked">lock_open</mat-icon>
+                <h4 mat-line>{{siteRequestObj.open_site ? "Yes":"No"}}</h4>
+                <p mat-line>Open to all</p>
             </mat-list-item>
-            <mat-divider md-inset></mat-divider>
+            <mat-divider mat-inset></mat-divider>
             <mat-list-item>
-                <mat-icon md-list-avatar>web</mat-icon>
-                <h4 md-line>{{siteRequestObj.siteType}}</h4>
-                <p md-line>Site Type Requested</p>
+                <mat-icon mat-list-avatar>web</mat-icon>
+                <h4 mat-line>{{siteRequestObj.siteType}}</h4>
+                <p mat-line>Site Type Requested</p>
             </mat-list-item>
-            <mat-divider md-inset></mat-divider>
+            <mat-divider mat-inset></mat-divider>
             <mat-list-item>
-                <mat-icon md-list-avatar>language</mat-icon>
-                <h4 md-line>{{siteRequestObj.siteName}}</h4>
-                <p md-line>Proposed Site Name</p>
+                <mat-icon mat-list-avatar>language</mat-icon>
+                <h4 mat-line>{{siteRequestObj.siteName}}</h4>
+                <p mat-line>Proposed Site Name</p>
             </mat-list-item>
-            <mat-divider md-inset></mat-divider>
+            <mat-divider mat-inset></mat-divider>
             <mat-list-item>
-                <mat-icon md-list-avatar>account_box</mat-icon>
-                <h4 md-line>{{siteRequestObj.ownerPrimary}}</h4>
-                <p md-line>Primary Site Owner</p>
+                <mat-icon mat-list-avatar>account_box</mat-icon>
+                <h4 mat-line>{{siteRequestObj.ownerPrimary}}</h4>
+                <p mat-line>Primary Site Owner</p>
             </mat-list-item>
-            <mat-divider md-inset></mat-divider>
+            <mat-divider mat-inset></mat-divider>
             <mat-list-item>
-                <mat-icon md-list-avatar>account_box</mat-icon>
-                <h4 md-line>{{siteRequestObj.ownerSecondary}}</h4>
-                <p md-line>Secondary Site Owner</p>
+                <mat-icon mat-list-avatar>account_box</mat-icon>
+                <h4 mat-line>{{siteRequestObj.ownerSecondary}}</h4>
+                <p mat-line>Secondary Site Owner</p>
             </mat-list-item>
           </mat-list>
         </mat-card>
       </div>
       <ng-template td-step-actions>
-        <button md-raised-button (click)="step3.state='none'; step3.disabled=false; step3.open(); step4.disabled=true;">Previous Step</button>
-        <button md-raised-button color="primary" (click)="step4.state='complete'; step4.disabled=true; step5.disabled=false; step5.open(); step5.state='complete'">Create Site</button>
+        <button mat-raised-button (click)="step3.state='none'; step3.disabled=false; step3.open(); step4.disabled=true;">Previous Step</button>
+        <button mat-raised-button color="primary" (click)="step4.state='complete'; step4.disabled=true; step5.disabled=false; step5.open(); step5.state='complete'">Create Site</button>
       </ng-template>
     </td-step>
 
@@ -356,7 +356,7 @@
         </mat-card-content>
         <mat-divider></mat-divider>
         <mat-card-actions>
-          <button md-raised-button color="accent" (click)="resetEntireSiteRequestForm(); siteInfoForm.reset(); step1.state = step2.state= step3.state = step4.state = step5.state ='none'; step5.disabled=true; step1.disabled=false; step1.open(); step2.disabled=true;">Start Again</button>
+          <button mat-raised-button color="accent" (click)="resetEntireSiteRequestForm(); siteInfoForm.reset(); step1.state = step2.state= step3.state = step4.state = step5.state ='none'; step5.disabled=true; step1.disabled=false; step1.open(); step2.disabled=true;">Start Again</button>
         </mat-card-actions>
       </mat-card>
     </td-step>
