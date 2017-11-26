@@ -287,8 +287,8 @@
         </div>
       </form>
       <ng-template td-step-actions>
-        <button md-raised-button (click)="step2.state='none'; step2.disabled=false; step2.open(); step3.disabled=true;">Previous Step</button>
-        <button md-raised-button color="primary" (click)="createSiteRequestObj(); step3.state='complete'; step3.disabled=true; step4.disabled=false; step4.open();" [disabled]="!siteInfoForm.valid">Review Request</button>
+        <button mat-raised-button (click)="step2.state='none'; step2.disabled=false; step2.open(); step3.disabled=true;">Previous Step</button>
+        <button mat-raised-button color="primary" (click)="createSiteRequestObj(); step3.state='complete'; step3.disabled=true; step4.disabled=false; step4.open();" [disabled]="!siteInfoForm.valid">Review Request</button>
       </ng-template>
     </td-step>
 
