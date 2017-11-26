@@ -1,4 +1,25 @@
-b71d2af (HEAD -> feature/FE-Framework-update) Updated the version to 1.0.0
+# 1.0.0 (2017-11-26)
+
+## Quick upgrade of the app to latest angular, cli, and ui platform versions as Nov 2017
+
+*  Adding Teradata Covalent UI icon sets.
+*  Updated the Readme.
+*  Updated the Material design style properties for buttons in Step 4 and Step 5
+*  Updated the button properties for Step 3 of the Wizard
+*  Updated the attribute property values being used for material styles on buttons for Steps 1 and 2.
+*  Modified the input type for the material input field directive.
+*  Included the Angular Animations module to the package.json file.
+*  Updated the styles being used by latest release of Covalent UI
+*  Explicitly defined component variable of type StepState and set equal to enum StepState.None. Modified view template.
+*  Angular Material selector elements updated on view template.
+*  Updated the materials checkbox and toolbar elements in view template.
+*  Adding Covalent and Materials modules to main app module definition.
+*  Updated Angular-cli.json to at least run 'ng serve' script
+*  Updated Karma and Protractor libraries in project
+*  Updated Covalent Core to 1.0.0-rc0 and to Angular 5.0.0
+*  Updated Material and Angular CLI dependencies
+*  Include changelog into project
+*  Updated the app version to 1.0.0
 
 # 0.0.0-Alpha (2017-06-21)
 
@@ -18,4 +39,3 @@ b71d2af (HEAD -> feature/FE-Framework-update) Updated the version to 1.0.0
 * Merge pull request #1 from guillermo-arellano/develop
 * Just making a quick change to test SourceTree integration.
 * Initial commit
-
